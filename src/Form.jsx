@@ -72,7 +72,7 @@ function Form() {
 
   return (
     <div className="form-container">
-      <h2 className="form-title">Registration Form</h2>
+      <h2 className="form-title">REGISTRATION FORM</h2>
       <form onSubmit={handleSubmit} className="form" noValidate>
         <div className="form-group">
           <label htmlFor="name" className="form-label">
