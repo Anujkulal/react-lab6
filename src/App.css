@@ -1,0 +1,118 @@
+:root {
+  color-scheme: light-dark;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 100vh;
+  justify-content: center;
+  background-image: linear-gradient(to top, rgb(197, 111, 244), rgba(223, 153, 79, 0));
+}
+
+.form-container {
+  width: 280px;
+  margin: 20px auto;
+  padding: 1rem;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px 6px #8d9ea8;
+  border-radius: 1rem;
+  color: #262323;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+ 
+}
+
+.form-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.form-container form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem 0;
+  text-align: left;
+ 
+}
+
+.form-container form .form-group input,
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 2px solid #fff;
+}
+
+.form-container form .form-group input {
+  border: 2px solid green;
+}
+
+.form-container form .form-group input.error {
+  border: 2px solid red;
+}
+.form-container form .form-group .error-message {
+  color: red;
+}
+
+.form-container form .form-group button:disabled {
+  cursor: not-allowed;
+  mask-image: linear-gradient(to left, #000, transparent);
+  color: #fff;
+}
+
+.form-container form .form-group button {
+  cursor: pointer;
+  background-image: linear-gradient(to left, #4387e7, #ed2525);
+  color: #fff;
+}
+
+.form-container .result {
+  margin-top: 1rem;
+  background: rgb(0, 234, 255);
+  padding: 10px;
+  border-radius: 1rem;
+  color: #000ed9;
+  border: 2px solid;
+  position: relative;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.result::after,
+.result::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 1rem;
+  padding: 10px;
+  background-image: conic-gradient(from var(--angle), blue 20%,transparent 10%);
+  z-index: -1;
+  animation:spin 3s linear infinite ;
+}
+
+.result::before {
+  filter: blur(1rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
